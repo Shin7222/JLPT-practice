@@ -1,12 +1,21 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { KanaItem } from "@/types/kana";
 
-function shuffle(array) {
+function shuffle<T>(array: T[]): T[] {
   return [...array].sort(() => Math.random() - 0.5);
 }
 
-function getRandomQuestion(fullList, usedChars) {
+interface Question {
+  correct: KanaItem;
+  options: KanaItem[];
+}
+
+function getRandomQuestion(
+  fullList: KanaItem[],
+  usedChars: string[],
+): Question {
   const remaining = fullList.filter((h) => !usedChars.includes(h.char));
   const pool = remaining.length > 0 ? remaining : fullList;
   const correct = pool[Math.floor(Math.random() * pool.length)];
@@ -20,20 +29,24 @@ function getRandomQuestion(fullList, usedChars) {
   return { correct, options };
 }
 
-export default function KanaQuiz({ list }) {
-  const [question, setQuestion] = useState(null);
-  const [usedChars, setUsedChars] = useState([]);
+interface KanaQuizProps {
+  list: KanaItem[];
+}
+
+export default function KanaQuiz({ list }: KanaQuizProps) {
+  const [question, setQuestion] = useState<Question | null>(null);
+  const [usedChars, setUsedChars] = useState<string[]>([]);
   const [score, setScore] = useState(0);
   const [total, setTotal] = useState(0);
-  const [selected, setSelected] = useState(null);
-  const [feedback, setFeedback] = useState(null);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [feedback, setFeedback] = useState<"correct" | "wrong" | null>(null);
 
   useEffect(() => {
     setQuestion(getRandomQuestion(list, []));
   }, [list]);
 
-  function handleAnswer(option) {
-    if (feedback) return;
+  function handleAnswer(option: KanaItem) {
+    if (feedback || !question) return;
 
     setSelected(option.romaji);
     const isCorrect = option.romaji === question.correct.romaji;
@@ -47,6 +60,7 @@ export default function KanaQuiz({ list }) {
   }
 
   function goToNext() {
+    if (!question) return;
     const newUsed = [...usedChars, question.correct.char];
     setUsedChars(newUsed);
     setQuestion(getRandomQuestion(list, newUsed));

@@ -1,4 +1,11 @@
-export default function HiraganaCard({ char, romaji }) {
+import { KanaItem } from "@/types/kana";
+
+interface KanaCardProps {
+  char?: string;
+  romaji?: string;
+}
+
+export default function KanaCard({ char, romaji }: KanaCardProps) {
   if (!char) {
     return <div className="invisible" />;
   }
@@ -9,7 +16,7 @@ export default function HiraganaCard({ char, romaji }) {
         <span className="text-4xl sm:text-5xl text-white">{char}</span>
       </div>
       <div className="bg-indigo-700 text-white text-center font-semibold py-2 text-xs sm:text-sm">
-        {romaji.toUpperCase()}
+        {romaji?.toUpperCase()}
       </div>
     </div>
   );

@@ -1,4 +1,16 @@
-export default function KanjiCard({ char, meaning, kunyomi, onyomi }) {
+interface KanjiCardProps {
+  char: string;
+  meaning: string;
+  kunyomi: string;
+  onyomi: string;
+}
+
+export default function KanjiCard({
+  char,
+  meaning,
+  kunyomi,
+  onyomi,
+}: KanjiCardProps) {
   return (
     <div className="border border-slate-800 rounded-lg overflow-hidden bg-slate-900 hover:border-indigo-500/50 transition-colors">
       <div className="flex items-center justify-center h-24 sm:h-28 pt-2">

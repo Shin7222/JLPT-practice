@@ -1,30 +1,47 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { KanjiItem } from "@/types/kana";
 
-function shuffle(array) {
+function shuffle<T>(array: T[]): T[] {
   return [...array].sort(() => Math.random() - 0.5);
 }
 
-// Tipe soal random: "meaning" (tebak arti) atau "reading" (tebak onyomi)
-function getRandomQuestion(fullList, usedKeys) {
+interface QuizOption {
+  key: string;
+  label: string;
+}
+
+interface Question {
+  correct: { char: string; label: string };
+  questionType: "meaning" | "reading";
+  options: QuizOption[];
+}
+
+function getRandomQuestion(
+  fullList: KanjiItem[],
+  usedKeys: string[],
+): Question {
   const remaining = fullList.filter((k) => !usedKeys.includes(k.char));
   const pool = remaining.length > 0 ? remaining : fullList;
   const correct = pool[Math.floor(Math.random() * pool.length)];
 
-  const questionType = Math.random() < 0.5 ? "meaning" : "reading";
+  const questionType: "meaning" | "reading" =
+    Math.random() < 0.5 ? "meaning" : "reading";
 
-  const getValue = (item) =>
+  const getValue = (item: KanjiItem) =>
     questionType === "meaning" ? item.meaning : item.onyomi;
 
   const wrongOptions = shuffle(
     fullList.filter((k) => k.char !== correct.char),
   ).slice(0, 3);
 
-  const options = shuffle([correct, ...wrongOptions]).map((item) => ({
-    key: item.char,
-    label: getValue(item),
-  }));
+  const options: QuizOption[] = shuffle([correct, ...wrongOptions]).map(
+    (item) => ({
+      key: item.char,
+      label: getValue(item),
+    }),
+  );
 
   return {
     correct: { char: correct.char, label: getValue(correct) },
@@ -33,20 +50,24 @@ function getRandomQuestion(fullList, usedKeys) {
   };
 }
 
-export default function KanjiQuiz({ list }) {
-  const [question, setQuestion] = useState(null);
-  const [usedKeys, setUsedKeys] = useState([]);
+interface KanjiQuizProps {
+  list: KanjiItem[];
+}
+
+export default function KanjiQuiz({ list }: KanjiQuizProps) {
+  const [question, setQuestion] = useState<Question | null>(null);
+  const [usedKeys, setUsedKeys] = useState<string[]>([]);
   const [score, setScore] = useState(0);
   const [total, setTotal] = useState(0);
-  const [selected, setSelected] = useState(null);
-  const [feedback, setFeedback] = useState(null);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [feedback, setFeedback] = useState<"correct" | "wrong" | null>(null);
 
   useEffect(() => {
     setQuestion(getRandomQuestion(list, []));
   }, [list]);
 
-  function handleAnswer(option) {
-    if (feedback) return;
+  function handleAnswer(option: QuizOption) {
+    if (feedback || !question) return;
 
     setSelected(option.key);
     const isCorrect = option.label === question.correct.label;
@@ -60,6 +81,7 @@ export default function KanjiQuiz({ list }) {
   }
 
   function goToNext() {
+    if (!question) return;
     const newUsed = [...usedKeys, question.correct.char];
     setUsedKeys(newUsed);
     setQuestion(getRandomQuestion(list, newUsed));

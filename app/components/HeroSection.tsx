@@ -18,7 +18,7 @@ export default function HeroSection() {
       </p>
 
       <Link
-        href="/practice"
+        href="/select-level"
         className="inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors"
       >
         Mulai Test →

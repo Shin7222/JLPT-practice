@@ -1,0 +1,198 @@
+import { JlptQuestion } from "@/types/test";
+
+export const n4Questions: JlptQuestion[] = [
+  {
+    id: "n4-001",
+    level: "N4",
+    type: "grammar",
+    question: "雨が　ふって（　）ので、かさを　もって　いきます。",
+    options: ["いる", "ある", "おく", "みる"],
+    answer: 0,
+    explanation:
+      "「〜ている」menunjukkan kondisi yang sedang berlangsung. 「雨が降っている」＝hujan sedang turun.",
+  },
+  {
+    id: "n4-002",
+    level: "N4",
+    type: "vocabulary",
+    question: "「しゅうかん」の　ただしい　かんじは？",
+    options: ["習慣", "週間", "週刊", "終館"],
+    answer: 1,
+    explanation:
+      "「しゅうかん」（minggu, periode）ditulis「週間」, contoh：一週間＝satu minggu.",
+  },
+  {
+    id: "n4-003",
+    level: "N4",
+    type: "grammar",
+    question: "この　しごとは　わたし（　）できません。",
+    options: ["でも", "には", "がは", "とは"],
+    answer: 1,
+    explanation:
+      "「には」menekankan bahwa subjek tertentu (saya) tidak mampu melakukannya, walau mungkin orang lain bisa.",
+  },
+  {
+    id: "n4-004",
+    level: "N4",
+    type: "vocabulary",
+    question: "「やくそく」の　いみは　なんですか。",
+    options: ["promise/janji", "pekerjaan", "kebiasaan", "permintaan"],
+    answer: 0,
+    explanation: "「やくそく」（約束）＝janji, kesepakatan.",
+  },
+  {
+    id: "n4-005",
+    level: "N4",
+    type: "grammar",
+    question: "あには　だいがく（　）べんきょうして　います。",
+    options: ["と", "へ", "で", "を"],
+    answer: 2,
+    explanation:
+      "「〜で勉強する」＝belajar di〜. Partikel「で」menunjukkan lokasi aktivitas berlangsung.",
+  },
+  {
+    id: "n4-006",
+    level: "N4",
+    type: "vocabulary",
+    question: "「るす」を　かんじで　かくと？",
+    options: ["留守", "留学", "在宅", "不在"],
+    answer: 0,
+    explanation: "「るす」（留守）＝tidak ada di rumah/kantor.",
+  },
+  {
+    id: "n4-007",
+    level: "N4",
+    type: "grammar",
+    question:
+      "この　えいがは　とても　おもしろい（　）、もう一回　みたいです。",
+    options: ["けど", "ので", "から", "のに"],
+    answer: 2,
+    explanation:
+      '「から」menunjukkan alasan. "Karena filmnya sangat menarik, saya ingin menontonnya sekali lagi."',
+  },
+  {
+    id: "n4-008",
+    level: "N4",
+    type: "vocabulary",
+    question: "「あんぜん」の　はんたいの　ことばは？",
+    options: ["きけん", "あんしん", "べんり", "ふべん"],
+    answer: 0,
+    explanation: "「あんぜん」(aman) lawan katanya「きけん」(危険＝bahaya).",
+  },
+  {
+    id: "n4-009",
+    level: "N4",
+    type: "grammar",
+    question: "たなかさんは　にほんごが　じょうずに（　）。",
+    options: ["します", "あります", "なりました", "おもいます"],
+    answer: 2,
+    explanation: "「〜になる」＝menjadi〜. 「上手になる」＝menjadi mahir.",
+  },
+  {
+    id: "n4-010",
+    level: "N4",
+    type: "vocabulary",
+    question: "「しんせつ」の　いみは　なんですか。",
+    options: ["sederhana", "baik hati/ramah", "serius", "rapi"],
+    answer: 1,
+    explanation: "「しんせつ」（親切）＝baik hati, ramah, suka membantu.",
+  },
+  {
+    id: "n4-011",
+    level: "N4",
+    type: "grammar",
+    question: "ここに　なまえを　かいて（　）ください。",
+    options: ["おいて", "みて", "あって", "いって"],
+    answer: 0,
+    explanation:
+      "「〜ておく」＝melakukan sesuatu sebagai persiapan. 「書いておく」＝menuliskan (untuk persiapan/nanti dipakai).",
+  },
+  {
+    id: "n4-012",
+    level: "N4",
+    type: "vocabulary",
+    question: "「しっぱい」を　かんじで　かくと？",
+    options: ["失敗", "失礼", "失望", "失念"],
+    answer: 0,
+    explanation: "「しっぱい」（失敗）＝gagal, kegagalan.",
+  },
+  {
+    id: "n4-013",
+    level: "N4",
+    type: "grammar",
+    question: "あめが　やんだら、さんぽに　（　）。",
+    options: ["いきません", "いきました", "いきましょう", "いって"],
+    answer: 2,
+    explanation:
+      "「〜たら、〜ましょう」＝kalau sudah〜, mari kita〜. Mengajak melakukan sesuatu setelah kondisi tertentu terpenuhi.",
+  },
+  {
+    id: "n4-014",
+    level: "N4",
+    type: "vocabulary",
+    question: "「きょうみ」の　いみは　なんですか。",
+    options: ["minat/ketertarikan", "kebingungan", "kesempatan", "kepastian"],
+    answer: 0,
+    explanation: "「きょうみ」（興味）＝minat, ketertarikan terhadap sesuatu.",
+  },
+  {
+    id: "n4-015",
+    level: "N4",
+    type: "grammar",
+    question: "でんしゃが　おくれた（　）、かいぎに　ちこくしました。",
+    options: ["のに", "ために", "なら", "ても"],
+    answer: 1,
+    explanation:
+      '「〜ために」menunjukkan sebab-akibat (lebih formal dari から). "Karena kereta terlambat, saya telat rapat."',
+  },
+  {
+    id: "n4-016",
+    level: "N4",
+    type: "vocabulary",
+    question: "「ねっしん」を　かんじで　かくと？",
+    options: ["熱心", "熱中", "関心", "感心"],
+    answer: 0,
+    explanation:
+      "「ねっしん」（熱心）＝tekun, bersemangat dalam melakukan sesuatu.",
+  },
+  {
+    id: "n4-017",
+    level: "N4",
+    type: "grammar",
+    question: "しゅくだいを　わすれて（　）、せんせいに　しかられました。",
+    options: ["きて", "おいて", "しまって", "もらって"],
+    answer: 2,
+    explanation:
+      '「〜てしまう」menunjukkan penyesalan atau hasil yang tidak diinginkan. "Saya lupa PR (dan menyesalinya), lalu dimarahi guru."',
+  },
+  {
+    id: "n4-018",
+    level: "N4",
+    type: "vocabulary",
+    question: "「ふくざつ」の　はんたいの　ことばは？",
+    options: ["かんたん", "むずかしい", "たいへん", "めんどう"],
+    answer: 0,
+    explanation:
+      "「ふくざつ」(複雑＝rumit) lawan katanya「かんたん」(簡単＝sederhana, mudah).",
+  },
+  {
+    id: "n4-019",
+    level: "N4",
+    type: "grammar",
+    question: "この　もんだいは　わたしに（　）むずかしいです。",
+    options: ["は", "とって", "でも", "から"],
+    answer: 1,
+    explanation:
+      '「〜にとって」＝bagi〜, dari sudut pandang〜. "Bagi saya, soal ini sulit."',
+  },
+  {
+    id: "n4-020",
+    level: "N4",
+    type: "vocabulary",
+    question: "「えんりょ」の　いみは　なんですか。",
+    options: ["sungkan/menahan diri", "khawatir", "menyesal", "bersyukur"],
+    answer: 0,
+    explanation:
+      "「えんりょ」（遠慮）＝sungkan, menahan diri agar tidak merepotkan orang lain.",
+  },
+];

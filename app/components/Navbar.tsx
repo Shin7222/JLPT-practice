@@ -8,7 +8,7 @@ export default function Navbar() {
 
   const navLinks = [
     { label: "Beranda", href: "/" },
-    { label: "Latihan Soal", href: "/practice" },
+    { label: "Latihan Soal", href: "/select-level" },
     { label: "Progress", href: "/dashboard" },
     { label: "Tentang Kami", href: "/about" },
   ];
@@ -40,7 +40,7 @@ export default function Navbar() {
 
         {/* CTA Button - Desktop */}
         <Link
-          href="/practice"
+          href="/select-level"
           className="hidden md:inline-block bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-semibold px-5 py-2 rounded-lg transition-colors"
         >
           Mulai Test
@@ -91,7 +91,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="/practice"
+            href="/select-level"
             onClick={() => setIsOpen(false)}
             className="block bg-indigo-500 text-white text-sm font-semibold text-center px-5 py-2.5 rounded-lg mt-2"
           >

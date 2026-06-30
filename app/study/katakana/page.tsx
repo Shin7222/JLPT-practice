@@ -5,8 +5,13 @@ import {
   katakanaDakutenRows,
   katakanaHandakutenRows,
 } from "../../data/katakana";
+import { KanaItem } from "@/types/kana";
 
-function KanaGrid({ rows }) {
+interface KanaGridProps {
+  rows: (KanaItem | null)[][];
+}
+
+function KanaGrid({ rows }: KanaGridProps) {
   return (
     <div className="space-y-3">
       {rows.map((row, i) => (

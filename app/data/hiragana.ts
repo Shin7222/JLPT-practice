@@ -1,3 +1,5 @@
+import { KanaItem } from "@/types/kana";
+
 // Hiragana dasar (gojuon), disusun per baris a-i-u-e-o
 export const hiraganaRows = [
   [
@@ -117,8 +119,8 @@ export const hiraganaHandakutenRows = [
 ];
 
 // Flat list untuk keperluan quiz (semua huruf, exclude null)
-export const hiraganaList = [
+export const hiraganaList: KanaItem[] = [
   ...hiraganaRows.flat(),
   ...hiraganaDakutenRows.flat(),
   ...hiraganaHandakutenRows.flat(),
-].filter(Boolean);
+].filter((item): item is KanaItem => item !== null);

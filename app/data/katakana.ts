@@ -1,3 +1,5 @@
+import { KanaItem } from "@/types/kana";
+
 export const katakanaRows = [
   [
     { char: "ア", romaji: "a" },
@@ -113,8 +115,8 @@ export const katakanaHandakutenRows = [
   ],
 ];
 
-export const katakanaList = [
+export const katakanaList: KanaItem[] = [
   ...katakanaRows.flat(),
   ...katakanaDakutenRows.flat(),
   ...katakanaHandakutenRows.flat(),
-].filter(Boolean);
+].filter((item): item is KanaItem => item !== null);

@@ -1,4 +1,5 @@
-import HiraganaQuiz from "../../../components/HiraganaQuiz";
+import KanaQuiz from "../../../components/KanaQuiz";
+import { hiraganaList } from "../../../data/hiragana";
 
 export default function HiraganaQuizPage() {
   return (
@@ -10,7 +11,7 @@ export default function HiraganaQuizPage() {
         Pilih romaji yang tepat untuk huruf yang ditampilkan
       </p>
 
-      <HiraganaQuiz />
+      <KanaQuiz list={hiraganaList} />
     </section>
   );
 }
